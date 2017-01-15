@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+
+{% block body %}
+
+<table>
+    {% for entity in entities %}
+        <tr><td><a href="/admin/entity/edit?name={{ entity }}">{{ entity }}</a></td></tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

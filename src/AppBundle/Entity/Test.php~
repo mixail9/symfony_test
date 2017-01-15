@@ -1,0 +1,40 @@
+<?php
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+
+/**
+* @ORM\Entity
+* @ORM\Table(name="test")
+*/
+class Test
+{
+	
+	/**
+	* @ORM\Column(type="integer")
+	* @ORM\Id
+	* @ORM\GeneratedValue(strategy="AUTO")
+	*/
+	protected $id;
+	
+	
+	/**
+	* @ORM\Column(type="string")
+	*/
+	protected $name;
+	
+	
+	/**
+	* @ORM\ManyToMany(targetEntity="Word", inversedBy="tests")
+	* @ORM\JoinTable(name="test_word")
+	*/
+	protected $words;
+	
+	public function __construct()
+	{
+		$this->words = new \Doctrine\Commen\Collections\ArrayCollection();
+	}
+}
+
+?>
